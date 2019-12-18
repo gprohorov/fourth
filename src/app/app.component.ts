@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MyServiceService} from './my-service.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit{
   title = 'app';
 
   param: string;
@@ -21,6 +21,13 @@ export class AppComponent  {
   }
   getInfo(): string {
     return 'My info';
+  }
+
+  ngOnInit() {
+    setTimeout( () =>
+      {this.itStepUrl = "";}
+  ,
+    1000);
   }
 
   search() {
